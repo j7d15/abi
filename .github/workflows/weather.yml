@@ -1,0 +1,52 @@
+name: Météo
+
+on:
+  schedule:
+    - cron: '30 5 * * *' # exécuter le cron tous les jours à 5h30
+  workflow_dispatch:  # Permet d'exécuter manuellement le workflow
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  update_weather:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Récupérer les données météo
+        run: |
+          # Définir les villes dans un tableau
+          cities=("Paris" "Nice" "Clermont-Ferrand" "Rennes" "Nantes" "Lyon" "Bordeaux" "Toulon" "Strasbourg")
+
+          # Initialiser un objet JSON vide pour contenir toutes les données
+          weather_json="{"
+
+          # Boucle sur chaque ville
+          for city in "${cities[@]}"; do
+            echo "Récupération des données pour $city..."
+            
+            # Récupérer toute la réponse JSON pour la ville
+            city_weather=$(curl -s "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=${{ secrets.OPENWEATHER_API_KEY }}&units=metric&lang=fr")
+            city_forecast=$(curl -s "https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=${{ secrets.OPENWEATHER_API_KEY }}&units=metric&cnt=2&lang=fr")
+
+            # Ajouter les données complètes pour chaque ville au JSON
+            weather_json+="\"$city\": {\"current\": $city_weather, \"forecast\": $city_forecast},"
+          done
+
+          # Enlever la dernière virgule et fermer l'objet JSON
+          weather_json="${weather_json%,}}"
+
+          # Sauvegarder le JSON dans le fichier weather.json
+          echo $weather_json > public/weather.json
+
+      - name: Commit et push du fichier météo
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add public/weather.json
+          git commit -m "Mise à jour de la météo"
+          git push

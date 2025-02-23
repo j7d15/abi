@@ -1,0 +1,141 @@
+{
+    "Paris": {
+        "current": {
+            "coord": {
+                "lon": 2.3488,
+                "lat": 48.8534
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01n"
+                }
+            ],
+            "base": "stations",
+            "main": {
+                "temp": 12.37,
+                "feels_like": 12.01,
+                "temp_min": 11.25,
+                "temp_max": 13.43,
+                "pressure": 1023,
+                "humidity": 90,
+                "sea_level": 1023,
+                "grnd_level": 1013
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 5.14,
+                "deg": 180
+            },
+            "clouds": {
+                "all": 0
+            },
+            "dt": 1740084074,
+            "sys": {
+                "type": 2,
+                "id": 2012208,
+                "country": "FR",
+                "sunrise": 1740034197,
+                "sunset": 1740071942
+            },
+            "timezone": 3600,
+            "id": 2988507,
+            "name": "Paris",
+            "cod": 200
+        },
+        "forecast": {
+            "cod": "200",
+            "message": 0,
+            "cnt": 2,
+            "list": [
+                {
+                    "dt": 1740096000,
+                    "main": {
+                        "temp": 2.12,
+                        "feels_like": -0.2,
+                        "temp_min": -0.87,
+                        "temp_max": 2.12,
+                        "pressure": 1030,
+                        "sea_level": 1030,
+                        "grnd_level": 896,
+                        "humidity": 83,
+                        "temp_kf": 2.99
+                    },
+                    "weather": [
+                        {
+                            "id": 802,
+                            "main": "Clouds",
+                            "description": "scattered clouds",
+                            "icon": "03n"
+                        }
+                    ],
+                    "clouds": {
+                        "all": 25
+                    },
+                    "wind": {
+                        "speed": 2.19,
+                        "deg": 21,
+                        "gust": 1.65
+                    },
+                    "visibility": 10000,
+                    "pop": 0,
+                    "sys": {
+                        "pod": "n"
+                    },
+                    "dt_txt": "2025-02-21 00:00:00"
+                },
+                {
+                    "dt": 1740106800,
+                    "main": {
+                        "temp": 0.28,
+                        "feels_like": -2.4,
+                        "temp_min": -1.38,
+                        "temp_max": 0.28,
+                        "pressure": 1029,
+                        "sea_level": 1029,
+                        "grnd_level": 895,
+                        "humidity": 82,
+                        "temp_kf": 1.66
+                    },
+                    "weather": [
+                        {
+                            "id": 801,
+                            "main": "Clouds",
+                            "description": "few clouds",
+                            "icon": "02n"
+                        }
+                    ],
+                    "clouds": {
+                        "all": 17
+                    },
+                    "wind": {
+                        "speed": 2.23,
+                        "deg": 21,
+                        "gust": 1.73
+                    },
+                    "visibility": 10000,
+                    "pop": 0,
+                    "sys": {
+                        "pod": "n"
+                    },
+                    "dt_txt": "2025-02-21 03:00:00"
+                }
+            ],
+            "city": {
+                "id": 2990439,
+                "name": "Arrondissement de Nice",
+                "coord": {
+                    "lat": 44,
+                    "lon": 7.25
+                },
+                "country": "FR",
+                "population": 526100,
+                "timezone": 3600,
+                "sunrise": 1740032569,
+                "sunset": 1740071217
+            }
+        }
+    }
+}
