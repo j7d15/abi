@@ -2,7 +2,8 @@ name: Météo
 
 on:
   schedule:
-    - cron: '30 5 * * *' # exécuter le cron tous les jours à 5h30
+    # - cron: '30 5 * * *'  exécuter le cron tous les jours à 5h30
+    - 0 0 1 1 * # Tous les ans au 1er janvier
   workflow_dispatch:  # Permet d'exécuter manuellement le workflow
   push:
     branches:
